@@ -1,0 +1,22 @@
+{
+    "window.zoomLevel": 3,
+    "prettier.tabWidth": 4,
+    "prettier.semi": false,
+    "prettier.singleQuote": true,
+    "prettier.useTabs": false,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": false,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/.vscode": true
+    },
+    "editor.cursorStyle": "line",
+    "workbench.colorTheme": "Monokai",
+    "java.configuration.updateBuildConfiguration": "interactive"
+}

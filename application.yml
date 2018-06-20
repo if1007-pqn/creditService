@@ -1,0 +1,8 @@
+spring:
+  data.mongodb:   
+    uri: mongodb://bruno:golpinho12@ds163510.mlab.com:63510/credit2
+server.port: 9090
+
+management.server.port: 9091
+management.server.address: 127.0.0.1
+
