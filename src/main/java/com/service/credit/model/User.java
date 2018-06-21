@@ -1,5 +1,7 @@
 package com.service.credit.model;
 
+import com.service.credit.exception.InvalidCellphoneException;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -20,6 +22,9 @@ public class User {
     private String cellphone;
 
     public User(String cellphone) {
+        if (cellphone.length() < 10 || cellphone.length() > 11) {
+            throw new InvalidCellphoneException();
+        }
         this.cellphone = cellphone;
     }
     

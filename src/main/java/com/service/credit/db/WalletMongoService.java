@@ -2,23 +2,23 @@ package com.service.credit.db;
 
 import java.util.List;
 
-import com.service.credit.model.User;
+import com.service.credit.model.Wallet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
- 
+
 @Service
-public class UserMongoService {
+public class WalletMongoService {
  
     @Autowired
-    private UserMongoRepository repository;
+    private WalletMongoRepository repository;
  
-    public void save(User obj) {
+    public void save(Wallet obj) {
         repository.save(obj);
     }
  
-    public List<User> findByCellphone(String cellphone) {
-        return repository.findByCellphone(cellphone);
+    public List<Wallet> findByUseridAndStoreid(String userid, String storeid) {
+        return repository.findByUseridAndStoreid(userid, storeid);
     }
 
     public long count() {

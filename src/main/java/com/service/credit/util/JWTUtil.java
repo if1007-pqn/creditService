@@ -1,9 +1,9 @@
 package com.service.credit.util;
 
-import java.util.Calendar;
+// import java.util.Calendar;
 import java.util.Date;
 
-import com.service.credit.exception.TokenInvalidException;
+import com.service.credit.exception.InvalidTokenException;
 
 import org.springframework.beans.factory.annotation.Value;
 
@@ -11,7 +11,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
-import io.jsonwebtoken.SignatureAlgorithm;
+// import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.SignatureException;
 
 public class JWTUtil {
@@ -46,13 +46,13 @@ public class JWTUtil {
             Claims t = JWTUtil.decode(token).getBody();
             if (!t.getAudience().equals(owner)
                 || new Date().after(t.getExpiration()))
-                throw new TokenInvalidException();
+                throw new InvalidTokenException();
             return t.getId();
 
         } catch (MalformedJwtException e) {
-            throw new TokenInvalidException();
+            throw new InvalidTokenException();
         } catch (SignatureException e) {
-            throw new TokenInvalidException();
+            throw new InvalidTokenException();
         }
     }
 }

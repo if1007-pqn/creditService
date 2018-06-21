@@ -14,9 +14,12 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/.vscode": true
+        "**/.vscode": true,
+        "**/.gradle": true,
+        "**/.settings": true
     },
     "editor.cursorStyle": "line",
     "workbench.colorTheme": "Monokai",
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.completion.overwrite": false
 }

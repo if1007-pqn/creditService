@@ -4,9 +4,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
 
-public class TokenInvalidException extends RuntimeException {
-    public TokenInvalidException() {
-        super("Token invalid");
+public class InsufficientCreditsException extends RuntimeException {
+    public InsufficientCreditsException() {
+        super("Don't have the credit requested");
     }
 
 }
