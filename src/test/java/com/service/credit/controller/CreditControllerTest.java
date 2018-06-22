@@ -52,7 +52,7 @@ public class CreditControllerTest {
 		MvcResult result = this.mockMvc.perform(post("/purchase")
 				.header("token", storeToken)
 				.header("cellphone", cellphone)
-				.header("value", 100.0)
+				.header("value", 1000.0)
 				.header("credit", 0.0))
 				.andExpect(status().is2xxSuccessful())
 				.andReturn();
@@ -112,6 +112,48 @@ public class CreditControllerTest {
 				.andExpect(status().is2xxSuccessful()).andReturn();
 	}
 	
+	/**
+	 * test for simulating user using credits as discount for purchases
+	 * @throws Exception 
+	 */
+	@Test
+	public void testPurchaseWithUseOfCredit() throws Exception {
+		String cellphone = "81123456789";
+		makePurchaseForCellphone(cellphone);
+		this.mockMvc.perform(post("/purchase")
+				.header("token", storeToken)
+				.header("cellphone", cellphone)
+				.header("value", 100.0)
+				.header("credit", 10.0)) //using 10.0 of credit
+				.andExpect(status().is2xxSuccessful())
+				.andReturn();
+	}
+	
+	
+	/**
+	 * test for when user send wrong entry cellphones
+	 * @throws Exception 
+	 */
+	@Test
+	public void testWrongEntryPhones() throws Exception {
+		String cellphone = "811234";
+		
+		this.mockMvc.perform(post("/purchase")
+				.header("token", storeToken)
+				.header("cellphone", cellphone)
+				.header("value", 100.0)
+				.header("credit", 0.0))
+				.andExpect(status().is4xxClientError())
+				.andReturn();
+		String cellphone2 = "81123456789012345678";
+		this.mockMvc.perform(post("/purchase")
+				.header("token", storeToken)
+				.header("cellphone", cellphone2)
+				.header("value", 100.0)
+				.header("credit", 0.0))
+				.andExpect(status().is4xxClientError())
+				.andReturn();
+	}
 	
 	@After
     public void after() {
