@@ -98,6 +98,20 @@ public class CreditControllerTest {
 				.andExpect(status().is2xxSuccessful()).andReturn();
 	}
 	
+	/**
+	 * test to remove user wallet from store (erase credits)
+	 * @throws Exception
+	 */
+	@Test
+	public void testDeleteWallets() throws Exception {
+		String cellphone = "81123456789";
+		makePurchaseForCellphone(cellphone);
+		this.mockMvc.perform(delete("/wallet")
+				.header("token", storeToken)
+				.header("cellphone", cellphone))
+				.andExpect(status().is2xxSuccessful()).andReturn();
+	}
+	
 	
 	@After
     public void after() {
