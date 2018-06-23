@@ -29,4 +29,7 @@ public class UserMongoService {
         repository.deleteById(id);
     }
  
+    public void deleteAll() {
+        repository.deleteAll();
+    }
 }

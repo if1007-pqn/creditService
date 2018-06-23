@@ -28,5 +28,9 @@ public class WalletMongoService {
     public void delete(String id) {
         repository.deleteById(id);
     }
+
+    public void deleteAll() {
+        repository.deleteAll();
+    }
  
 }
