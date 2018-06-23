@@ -5,4 +5,4 @@ spring:
 
 config:
   tokenKey: abc123
-  storeServiceAddress: http://localhost:8080
+  storeServiceAddress: ${STORE_ADDR:http://localhost:8080}

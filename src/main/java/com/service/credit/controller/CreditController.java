@@ -9,6 +9,7 @@ import com.service.credit.db.UserMongoService;
 import com.service.credit.db.WalletMongoService;
 import com.service.credit.exception.InvalidCellphoneException;
 import com.service.credit.exception.InvalidTokenException;
+import com.service.credit.exception.ServiceNotReachableException;
 import com.service.credit.exception.WalletNotFoundException;
 import com.service.credit.json.GetLevelsJson;
 import com.service.credit.model.Level;
@@ -29,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
 import io.swagger.annotations.ApiOperation;
@@ -133,6 +135,8 @@ public class CreditController {
             } else {
                 throw e;
             }
+        } catch (ResourceAccessException e) {
+            throw new ServiceNotReachableException("Store");
         }
         String json = response.getBody();
         Gson gson = new Gson();
