@@ -5,3 +5,6 @@ build
 .project
 .classpath
 *.class
+*.vscode
+*.sts*
+*.eclipse*

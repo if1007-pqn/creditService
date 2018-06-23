@@ -46,7 +46,7 @@ dependencies {
 
 
     // Use JUnit test framework
-    // testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'junit:junit:4.12'
 }
 
