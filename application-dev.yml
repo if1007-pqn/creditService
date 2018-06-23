@@ -1,0 +1,8 @@
+spring:
+  data.mongodb:   
+    uri: mongodb://localhost:27017/credit
+
+
+config:
+  tokenKey: abc123
+  storeServiceAddress: http://localhost:8080

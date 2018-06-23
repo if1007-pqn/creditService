@@ -15,7 +15,7 @@ import lombok.Getter;
 /**
  * Wallet
  */
-@Document(collection = "wallet")
+@Document(collection = "wallets")
 @Getter
 public class Wallet {
     @Id

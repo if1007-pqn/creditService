@@ -1,0 +1,8 @@
+spring:
+  data.mongodb:   
+    uri: mongodb://bruno:golpinho12@ds163510.mlab.com:63510/credit2
+
+
+config:
+  tokenKey: oiqWe.jsnsSfxzcbvASOI!#A
+  storeServiceAddress: http://localhost:8080

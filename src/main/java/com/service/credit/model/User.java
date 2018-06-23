@@ -11,7 +11,7 @@ import lombok.Getter;
 /**
  * User
  */
-@Document(collection = "user")
+@Document(collection = "users")
 @Getter
 public class User {
     

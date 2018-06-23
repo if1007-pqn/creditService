@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.service.credit.ApplicationConfig;
 import com.service.credit.db.UserMongoService;
 import com.service.credit.db.WalletMongoService;
 import com.service.credit.exception.InvalidCellphoneException;
@@ -34,7 +35,9 @@ import io.swagger.annotations.ApiOperation;
 
 @Controller
 public class CreditController {
-    private static final String storeServiceLink = "http://localhost:8080";
+
+    @Autowired
+    private ApplicationConfig config;
     @Autowired
     private UserMongoService userMongoService;
     @Autowired
@@ -69,12 +72,13 @@ public class CreditController {
         }
 
         //get wallet
-        List<Wallet> lw = walletMongoService.findByUseridAndStoreid(u.getId(), JWTUtil.getId(token, "store")); 
+        String storeid = JWTUtil.getId(config.getTokenKey(), token, "store");
+        List<Wallet> lw = walletMongoService.findByUseridAndStoreid(u.getId(), storeid); 
         Wallet w;
         if (lw.size() > 0)
             w = lw.get(0);
         else
-            w = new Wallet(u.getId(), JWTUtil.getId(token, "store"));
+            w = new Wallet(u.getId(), storeid);
         
         //get levels and oldDaysPurchases
         GetLevelsJson jl = getLevelsJson(token);
@@ -120,7 +124,7 @@ public class CreditController {
         ResponseEntity<String> response = null;
         try {
             response = restTemplate.exchange(
-                storeServiceLink + "/registerinfo", 
+                config.getStoreServiceAddress() + "/registerinfo", 
                 HttpMethod.GET, entity, String.class 
             );
         } catch (HttpClientErrorException e) {
@@ -157,7 +161,7 @@ public class CreditController {
         User u = lu.get(0);
         
         //get wallet
-        List<Wallet> lw = walletMongoService.findByUseridAndStoreid(u.getId(), JWTUtil.getId(token, "store")); 
+        List<Wallet> lw = walletMongoService.findByUseridAndStoreid(u.getId(), JWTUtil.getId(config.getTokenKey(), token, "store")); 
         if (lw.size() <= 0)
             throw new WalletNotFoundException();
         Wallet w = lw.get(0);

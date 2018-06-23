@@ -5,8 +5,6 @@ import java.util.Date;
 
 import com.service.credit.exception.InvalidTokenException;
 
-import org.springframework.beans.factory.annotation.Value;
-
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -16,10 +14,6 @@ import io.jsonwebtoken.SignatureException;
 
 public class JWTUtil {
 
-    @Value("${spring.secretKey}")
-    private static String key = "oiqWe.jsnsSfxzcbvASOI!#A"; //TODO: server to load configs
-
-    public static final String TOKEN_HEADER = "Authentication";
 
     // public static String create(String id, String owner) {
     //     Date d = new Date();
@@ -36,14 +30,14 @@ public class JWTUtil {
     //             .compact();
     // }
 
-    public static Jws<Claims> decode(String token){
+    public static Jws<Claims> decode(String key, String token){
         return Jwts.parser().setSigningKey(key).parseClaimsJws(token);
     }
 
-    public static String getId(String token, String owner) {
+    public static String getId(String key, String token, String owner) {
         /** if token is ok return the id */
         try {
-            Claims t = JWTUtil.decode(token).getBody();
+            Claims t = JWTUtil.decode(key, token).getBody();
             if (!t.getAudience().equals(owner)
                 || new Date().after(t.getExpiration()))
                 throw new InvalidTokenException();
