@@ -5,4 +5,3 @@ spring:
 
 config:
   tokenKey: oiqWe.jsnsSfxzcbvASOI!#A
-  storeServiceAddress: ${STORE_ADDR:http://localhost:8080}

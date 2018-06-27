@@ -45,7 +45,7 @@ public class CreditControllerTest {
 	
 	private MockMvc mockMvc;
 	
-	private static final String storeToken = "eyJhbGciOiJIUzUxMiJ9.eyJhdWQiOiJzdG9yZSIsImp0aSI6IjViMmQ3N2NjMWNkZTAwNmZhYTJjMzMzOCIsImV4cCI6MTUzNDk3NzEwNX0.OJ6VlrChk-FI4Rd8yZLcVjGwbtA-pG9DVbgG4neLSM142Sil2MlWKwQahb9cN89VRq9Hu9iBwATpCcaAVJxL3g";
+	private static final String storeToken = "eyJhbGciOiJIUzUxMiJ9.eyJhdWQiOiJzdG9yZSIsImp0aSI6IjViMzJjODNjNWY5NjNiNDk4YWM5NTE2ZCIsImV4cCI6MTUzNTM4ODUyMX0.eKGm9YfHVhVTklDhcXT5se0CqIJ7jV-isrqek2lCFnm8yIg4jz-xmYLQMw7SqkSQoAXarHYSAEwI-2me6fYY8Q";
 	
 	private MvcResult makePurchaseForCellphone(String cellphone) throws Exception
 	{

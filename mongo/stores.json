@@ -1,0 +1,1 @@
+{"_id":{"$oid":"5b32c83c5f963b498ac9516d"},"username":"laroca","password":"$2a$12$B9dcnvRnj6t6NrcDv7d/XOJEfkOb69VM/jFDwVAFjQ7ewb5Wdn1xS","oldDaysPurchases":100.0,"levels":[{"nextLevel":100.0,"percent":3.0,"creditDays":10.0},{"nextLevel":100.0,"percent":5.0,"creditDays":20.0},{"nextLevel":100.0,"percent":7.0,"creditDays":60.0}],"_class":"com.service.store.model.Store"}

@@ -1,0 +1,37 @@
+{
+    "kind": "ReplicationController",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "creditservice",
+        "labels": {
+            "app": "creditservice"
+        }
+    },
+    "spec": {
+        "replicas": 3,
+        "selector": {
+            "app": "creditservice"
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "app": "creditservice"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "creditservice",
+                        "image": "wison27/creditservice",
+                        "ports": [
+                            {
+                                "name": "http-server",
+                                "containerPort": 9090
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+spring:
+  data.mongodb:   
+    uri: mongodb://mongo:27017/credit
+
+config:
+  tokenKey: abc123

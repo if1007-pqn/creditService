@@ -1,7 +1,12 @@
 spring:
-  profiles.active: ${ENV:prod}
+  profiles.active: ${ENV:dev}
 server.port: ${PORT:9090}
 
 management.server.port: ${PORT2:9091}
 management.server.address: 127.0.0.1
 
+config:
+  storeServiceAddress: ${STORE_ADDR}
+
+logging.file: elk-credit.log
+spring.application.name: creditservice

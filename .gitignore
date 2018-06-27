@@ -8,3 +8,5 @@ build
 *.vscode
 *.sts*
 *.eclipse*
+rc.json
+elk-credit.log
