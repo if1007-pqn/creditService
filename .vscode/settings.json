@@ -1,5 +1,4 @@
 {
-    "window.zoomLevel": 3,
     "prettier.tabWidth": 4,
     "prettier.semi": false,
     "prettier.singleQuote": true,
@@ -7,19 +6,14 @@
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,
-    "editor.formatOnSave": false,
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/.vscode": true,
-        "**/.gradle": true,
-        "**/.settings": true
-    },
+    "editor.formatOnSave": true,
+    "editor.find.seedSearchStringFromSelection": false,
+    "editor.find.autoFindInSelection": false,
     "editor.cursorStyle": "line",
-    "workbench.colorTheme": "Monokai",
+    
+    //"workbench.colorTheme": "Monokai",
+    "window.menuBarVisibility": "toggle",
     "java.configuration.updateBuildConfiguration": "interactive",
-    "java.completion.overwrite": false
+    "java.completion.overwrite": false,
+    
 }
